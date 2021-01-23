@@ -1,14 +1,14 @@
 const orm = require('../config/orm')
 
 const burger = {
-    getAll: function(devoured) {
-        return orm.selectAll(devoured)
+    getAll: function(cb) {
+        orm.selectAll(cb)
     },
-    create: function(name) {
-        return orm.insertOne(name)
+    create: function(name, cb) {
+        return orm.insertOne(name, cb)
     },
-    eat: function(id) {
-        return orm.updateOne(id)
+    eat: function(id, cb) {
+        return orm.updateOne(id, cb)
     }
 }
 
