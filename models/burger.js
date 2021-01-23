@@ -11,3 +11,5 @@ const burger = {
         return orm.updateOne(id)
     }
 }
+
+module.exports = burger
