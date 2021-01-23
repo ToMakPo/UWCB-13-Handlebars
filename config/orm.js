@@ -1,14 +1,15 @@
 const connection = require('../config/connection.js')
 
 const orm = {
-    selectAll: function() {
-        const query = 'SELECT * FROM burgers'
+    selectAll: function(devoured) {
+        let query = 'SELECT * FROM burgers'
+        if (devoured != null) query += ' WHERE devoured = ' + devoured
     },
     insertOne: function(burgerName) {
         const query = `INSERT INTO burgers (burger_name) VALUE ('${burgerName}')`
     },
-    updateOne: function(id, devoured=true) {
-        const query = `UPDATE burgers SET devoured = ${devoured} WHERE id = ${id}`
+    updateOne: function(id) {
+        const query = `UPDATE burgers SET devoured = true WHERE id = ${id}`
     },
 }
 
