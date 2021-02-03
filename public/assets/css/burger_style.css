@@ -14,7 +14,10 @@ header {
 }
 
 header #burger-gif {
-  height: 200px;
+  margin-top: -50px;
+  margin-bottom: -25px;
+  height: 270px;
+  z-index: -1;
 }
 
 main {
@@ -28,46 +31,57 @@ main {
 main #lists {
   display: flex;
   flex-wrap: wrap;
+  color: #ffffff;
+  background-image: url(https://3.bp.blogspot.com/-owhOaTUdCEI/Viap9ZK-jVI/AAAAAAAAW50/DsuHMokFxbU/s1600/chalk-board-wallpaper-36479-images.jpg);
+  background-size: cover;
+  padding: 20px;
+  border: 15px solid;
+  border-image: repeating-linear-gradient(40deg, #392613, #734026, #47301f 8px) 60;
 }
 
-main #lists #uneaten-burgers, main #lists #eaten-burgers {
+main #lists h2 {
+  font-weight: 500;
+}
+
+main #lists #available-burgers, main #lists #eaten-burgers {
   flex: 1 0 auto;
   margin: 10px;
+  min-width: 300px;
+  min-height: 150px;
 }
 
-main #lists #uneaten-burgers ol, main #lists #eaten-burgers ol {
+main #lists #available-burgers ol, main #lists #eaten-burgers ol {
   margin: 0;
   list-style-position: inside;
   padding-inline-start: 0;
 }
 
-main #lists #uneaten-burgers li, main #lists #eaten-burgers li {
+main #lists #available-burgers li, main #lists #eaten-burgers li {
   font-size: 1.25em;
-  background: #ffedb1;
-  padding: 8px 25px;
+  padding: 8px 5px;
   margin: 3px 0;
   border-radius: 4px;
-  border: 1px solid #ffd54b;
 }
 
-main #lists #uneaten-burgers li {
+main #lists #available-burgers li {
   cursor: pointer;
   position: relative;
 }
 
-main #lists #uneaten-burgers li:hover::after {
+main #lists #available-burgers li:hover::after {
   display: block;
   position: absolute;
   content: 'Eat this burger';
-  color: #b18800;
-  right: 3px;
-  top: -3px;
+  color: gray;
+  left: 10px;
+  top: -5px;
   font-size: .75em;
 }
 
 main form {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 main form input {

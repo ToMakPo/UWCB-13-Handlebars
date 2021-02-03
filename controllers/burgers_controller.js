@@ -3,18 +3,29 @@ const burger = require('../models/burger')
 
 const router = express.Router()
 
-router.get('/', function(req, res) {
-    burger.getAll(function(data) {
-        console.log('router > get > data:\n', data);
+router.get('/', (req, res) => {
+    burger.getAll(data => {
+        const lists = {
+            availableBurgers: [],
+            eatenBurgers: []
+        }
+
+        for (const burger of data) {
+            lists[`${burger.devoured ? 'eaten' : 'available'}Burgers`].push(burger)
+        }
+
+        res.render('index', lists)
     })
 })
-router.post('/api/:name', function(req, res) {
-    console.log('router > post > req.params:\n', req.params);
-    // burger.create()
+router.post('/newBurger', (req, res) => {
+    burger.create(req.body.name, data => {
+        res.json(data)
+    })
 })
-router.put('/api/:id', function(req, res) {
-    console.log('router > put > req.params:\n', req.params);
-    // burger.eat()
+router.post('/eatBurger', (req, res) => {
+    burger.eat(req.body.id, data => {
+        res.json(data)
+    })
 })
 
 module.exports = router

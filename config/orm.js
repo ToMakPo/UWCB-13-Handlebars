@@ -2,10 +2,8 @@ const connection = require('../config/connection.js')
 
 function runQuery(query, cb) {
     connection.query(query, function(err, result) {
-        connection.query(query, function(err, result) {
-            if (err) throw err
-            cb(result)
-        })
+        if (err) throw err
+        cb(result)
     })
 }
 

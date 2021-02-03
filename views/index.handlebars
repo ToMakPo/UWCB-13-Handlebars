@@ -1,29 +1,29 @@
 <header>
     <h1>Eat-Da-Burger!</h1>
-    <img id='burger-gif' src="https://cdn.dribbble.com/users/2049851/screenshots/4368846/design_burger_800x600.gif" alt="animated gif of a burger">
+    <img id='burger-gif' src='https://cdn.dribbble.com/users/2049851/screenshots/4368846/design_burger_800x600.gif' alt='animated gif of a burger'>
 </header>
 <main>
     <div id='lists'>
-        <div id='uneaten-burgers'>
+        <div id='available-burgers'>
             <h2>Available:</h2>
             <ol class='burger-list'>
-                {{#each uneaten-burger}}
-                <li data-id='{{id}}'>{{name}}</li>
+                {{#each availableBurgers}}
+                <li data-id='{{id}}'>{{burger_name}}</li>
                 {{/each}}
             </ol>
         </div>
         <div id='eaten-burgers'>
             <h2>Eaten:</h2>
             <ol class='burger-list'>
-                {{#each uneaten-burger}}
-                <li data-id='{{id}}'>{{name}}</li>
+                {{#each eatenBurgers}}
+                <li data-id='{{id}}'>{{burger_name}}</li>
                 {{/each}}
             </ol>
         </div>
     </div>
-    <form action="api/" method="post">
+    <form id='new-burger-form'>
         <label for='burger-name'><h3>Create a new burger:</h3></label>
-        <input type="text" id='burger-name' name='burger_name' maxlength=35>
-        <button type="submit">Create</button>
+        <input type='text' id='burger-name' name='burger_name' maxlength=35>
+        <button type='submit'>Create</button>
     </form>
 </main>
